@@ -6,6 +6,18 @@ class Employee {
       this.id = id;
       this.email = email;
     }
+
+    getName() {
+      return this.name;
+    }
+
+    getId() {
+      return this.id;
+    }
+
+    getEmail() {
+      return this.email;
+    }
   
     printInfo() {
       console.log(`Name: ${this.name}`);
@@ -14,6 +26,3 @@ class Employee {
     }
   }
   
-  const employee = new Employee();
-  
-  employee.printInfo();
