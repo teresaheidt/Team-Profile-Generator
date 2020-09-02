@@ -1,6 +1,6 @@
-const Manager = require("./develop/lib/Manager");
-const Engineer = require("./develop/lib/Engineer");
-const Intern = require("./develop/lib/Intern");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -8,9 +8,9 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./develop/lib/htmlRenderer");
+const render = require("./lib/htmlRenderer");
 
-const teamArray = []
+const teamArray = [];
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -30,8 +30,8 @@ function newTeam() {
             ]
 
         }
-    ]).then(userChoice => {
-        switch (userChoice.member) {
+    ]).then(answer => {
+        switch (answer.memberChoice) {
             case 'Manager':
                 addManager();
                 break;
@@ -45,7 +45,7 @@ function newTeam() {
                 break;
 
             case 'No more employees':
-            render(team);
+            createTeam()
                 break;
                 
         }
@@ -62,7 +62,7 @@ function newTeam() {
             {
                 type: 'input',
                 message: 'What is your employee ID?',
-                name: 'managerID'
+                name: 'managerId'
             },
             {
                 type: 'input',
@@ -75,11 +75,11 @@ function newTeam() {
                 name: 'managerOfficeNumber'
             }
         ]).then(userChoice => {
-            const manager = new manager(userChoice.managerName, userChoice.managerId, userChoice.managerEmail, userChoice.managerOfficeNumber)
+            const manager = new Manager(userChoice.managerName, userChoice.managerId, userChoice.managerEmail, userChoice.managerOfficeNumber)
 
-            team.push(manager)
+            teamArray.push(manager)
 
-            createTeam();
+           newTeam()
         })
     }
 
@@ -107,11 +107,11 @@ function newTeam() {
                 name: 'engineerGithub'
             }
         ]).then(userChoice => {
-            const engineer = new manager(userChoice.engineerName, userChoice.engineerId, userChoice.engineerEmail, userChoice.engineerGithub)
+            const engineer = new Engineer(userChoice.engineerName, userChoice.engineerId, userChoice.engineerEmail, userChoice.engineerGithub)
 
-            team.push(engineer)
+            teamArray.push(engineer)
 
-            createTeam();
+            newTeam();
 
         })    
     }
@@ -140,19 +140,24 @@ function newTeam() {
                     name: 'internSchool'
                 }
                 ]).then(userChoice => {
-                    const intern = new intern(userChoice.internName, userChoice.internId, userChoice.internEmail, userChoice.internSchool)
+                    const intern = new Intern(userChoice.internName, userChoice.internId, userChoice.internEmail, userChoice.internSchool)
         
-                    team.push(intern)
+                    teamArray.push(intern)
         
-                    createTeam();
+                    newTeam();
                 })
             
     }
 } 
+function createTeam() {
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, render(teamArray), "utf-8");
+}
 
-module.exports = teamArray
 
-createTeam();
+newTeam();
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
