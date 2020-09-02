@@ -5,16 +5,13 @@
 * How the application works
 * Installation 
 * Tests
+* Technologies used
 * Images
 * Link
 ## User Story:
-
-As a manager
-I want to generate a webpage that displays my team's basic info
-so that I have quick access to emails and GitHub profiles
-
+User would like to generate a webpage that displays the team's basic information so that they have QUICK access to emails and Github profiles. 
 ## What this application is:
-This is a Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person. 
+This is a functional application created using Node CLI, that takes in information about employees and generates an HTML webpage that displays summaries for each person. 
 ## How the application works:
 When the user typs in node app.js in the terminal, a series of questions prompts one after the other, asking for the following:
 - Name
@@ -27,7 +24,9 @@ Any number of interns, managers and/or engineers can be iput in to the command l
 When the HTML main page is opened in the browser, the questions and answers are displayed.
 ## Installation:
 npm install Inquirer.
-
+## Technologies used:
+Bootstrap was used for styling. 
+This is a Node application.
 ## Tests:
 All unit tests have been passed.
 ## Images:
@@ -36,6 +35,10 @@ This is the basic design for the application.
 ![screenshot](assets/look.png)
 
 ## Link:
-Teresa Heidt: 
+Teresa Heidt's portfolio: 
 
-[Link to deployed application](https://teresaheidt.github.io/Team-Profile-Generator/)
+[Portfolio](https://teresaheidt.github.io/TH-Portfolio/)
+
+Link to Github repository:
+
+[Github](https://github.com/teresaheidt/Team-Profile-Generator)
