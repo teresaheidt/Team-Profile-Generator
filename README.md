@@ -28,7 +28,7 @@ npm install Inquirer.
 Bootstrap was used for styling. 
 This is a Node application.
 ## Tests:
-All unit tests have been passed.
+Tests were run on Employee, Engineer, Intern and Manager. All unit tests have been passed.
 ## Images:
 This is the basic design for the application.
 
