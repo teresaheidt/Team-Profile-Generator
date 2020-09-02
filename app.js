@@ -56,7 +56,7 @@ function newTeam() {
         .prompt([
             {
                 type: 'input',
-                message: 'What if your name?',
+                message: 'What is your name?',
                 name: 'managerName'
             },
             {
