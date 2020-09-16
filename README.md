@@ -42,3 +42,7 @@ Teresa Heidt's portfolio:
 Link to Github repository:
 
 [Github](https://github.com/teresaheidt/Team-Profile-Generator)
+
+Link to video:
+
+[Video](https://drive.google.com/file/d/1XoRWKUcK-bR9ivZi477C_3ss-nVr6_cX/view?usp=sharing)
