@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/teresaheidt/Team-Profile-Generator#readme",
   "dependencies": {
+    "http": "0.0.1-security",
     "inquirer": "^7.3.3"
   }
 }
